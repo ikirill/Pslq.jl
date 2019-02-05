@@ -1,0 +1,21 @@
+#+TITLE: The PSLQ Algorithm and its Implementation
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/opt/org-style.css" />
+
+* Triangular matrix condition numbers
+
+A Survey of Condition Number Estimation for Triangular Matrices -
+Higham [[https://doi.org/10.1137/1029112][doi]] [[file:/Users/kirill/Documents/Papers/A%20Survey%20of%20Condition%20Number%20Estimation%20for%20Triangular%20Matrices%20-%20Higham.pdf][pdf]]
+
+Some bounds on the condition number can be obtained from the
+/comparison matrix/. I have to check if it's good enough that I can
+drop $A$ entirely from the algorithm.
+
+* Org config                                                       :noexport:
+[[bibliography:/Users/kirill/Dropbox/Bibliography.bib][Bibliography.bib]]
+
+#+OPTIONS: tex:t
+#+HTML_MATHJAX: path:file:///opt/software/MathJax/MathJax.js?config=TeX-AMS_HTML
+# HTML_MATHJAX: path:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+
+# Local Variables:
+# End:
