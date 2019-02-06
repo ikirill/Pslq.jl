@@ -1,14 +1,35 @@
 #+TITLE: The PSLQ Algorithm and its Implementation
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/opt/org-style.css" />
 
-* Triangular matrix condition numbers
+* Algorithm notes
+
+The basic structure of the algorithm is as follows. There is an
+$n\times(n-1)$ lower-trapezoidal matrix $H$, and we keep transforming
+it to reduce its diagonal elements by $H\mapsto AHQ$, where $A$ is an
+integer matrix, and $Q$ is orthogonal. The basic step is to pick an
+index $m$ such that $\gamma^m H[m,m]$ is large, swap the rows $m,m+1$,
+and apply a Givens rotation to the $2\times2$ submatrix $H[m:m+1,
+m:m+1]$ to get back to lower-trapezoidal. After this, we figure out
+the integer matrix $A$ for this step, reduce $H$ by it, and update $A$
+and $B:=A^{-1}$.
+
+Doing all this in arbitrary-precision floating point arithmetic is
+expensive, and most of the time is spent in the $O(n^3)$ reduction and
+matrix multiplication and forward substitution steps. To address this,
+we may do the updates in a lower intermediate precision (and
+recursively too), finding an intermediate $A'$ using a lower working
+precision, then updating the full-precision $H,A,B$ matrices using
+$A'$.
+
+The algorithm as it is implemented right now is quite slow, it seems
+to be due to ~BigFloat~ arithmetic, so I'm not sure if it's a mistake
+I made or if it's just this slow in Julia.
+
+* References
+** Triangular matrix condition numbers
 
 A Survey of Condition Number Estimation for Triangular Matrices -
 Higham [[https://doi.org/10.1137/1029112][doi]] [[file:/Users/kirill/Documents/Papers/A%20Survey%20of%20Condition%20Number%20Estimation%20for%20Triangular%20Matrices%20-%20Higham.pdf][pdf]]
-
-Some bounds on the condition number can be obtained from the
-/comparison matrix/. I have to check if it's good enough that I can
-drop $A$ entirely from the algorithm.
 
 * Org config                                                       :noexport:
 [[bibliography:/Users/kirill/Dropbox/Bibliography.bib][Bibliography.bib]]
