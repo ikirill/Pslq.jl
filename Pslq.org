@@ -1,5 +1,4 @@
 #+TITLE: The PSLQ Algorithm and its Implementation
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="/opt/org-style.css" />
 
 * Algorithm notes
 
@@ -32,11 +31,10 @@ A Survey of Condition Number Estimation for Triangular Matrices -
 Higham [[https://doi.org/10.1137/1029112][doi]] [[file:/Users/kirill/Documents/Papers/A%20Survey%20of%20Condition%20Number%20Estimation%20for%20Triangular%20Matrices%20-%20Higham.pdf][pdf]]
 
 * Org config                                                       :noexport:
-[[bibliography:/Users/kirill/Dropbox/Bibliography.bib][Bibliography.bib]]
+[[bibliography:Pslq.bib][Pslq.bib]]
 
 #+OPTIONS: tex:t
-#+HTML_MATHJAX: path:file:///opt/software/MathJax/MathJax.js?config=TeX-AMS_HTML
-# HTML_MATHJAX: path:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+#+HTML_MATHJAX: path:https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
 
 # Local Variables:
 # End:
